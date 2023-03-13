@@ -25,7 +25,7 @@ logger.setLevel(logging.ERROR)
 
 
 async def main_convertor_handler(
-    message: Message, _, edit_caption: bool = False, user=None
+    message: Message, edit_caption: bool = False, user=None
 ):
     """
     This function is used to convert a message to a different format
@@ -159,6 +159,8 @@ async def create_inline_keyboard_markup(message: Message, method_func, user):
         for markup in reply_markup["inline_keyboard"]:
             row_buttons = []
             for button_data in markup:
+                if button_data.get("url") is None:
+                    continue
                 text = button_data["text"]
                 url = await method_func(user=user, text=button_data["url"])
                 row_buttons.append(InlineKeyboardButton(text, url=url))
