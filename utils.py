@@ -219,7 +219,7 @@ async def replace_username(text, username):
 
     for i in telegram_links:
 
-        text = text.replace(i, f"@{USERNAME}")
+        text = text.replace(i, f"@{username}")
 
     return text   
 
