@@ -217,7 +217,7 @@ async def replace_username(text, username):
         usernames = re.findall(r"@[A-Za-z0-9_]+", text)
         for old_username in usernames:
             text = text.replace(old_username, f"@{username}")
-        telegram_links = re.findall(r'[(?:http|https)?://]*(?:t.me|telegram.me|telegram.dog|dood.so|dood.pm|droplink.co|urlsopen.com|urlsopen.net)[^\s]+', str(text))
+        telegram_links = re.findall(r'[(?:http|https)?://]*(?:t.me|telegram.me|telegram.dog|dood.so|dood.pm|droplink.co|urlsopen.com|urlsopen.net|dood.sh|dood.ws|konfilink.com|kuklink.com)[^\s]+', str(text))
 
     for i in telegram_links:
 
